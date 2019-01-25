@@ -1,0 +1,2 @@
+Warning[2065] C:\DataRoom\Ramos\Code\RamosClock_firmware.X\Ramos_Sys\LED_display.c 408 : static function 'LED_muxAway' never referenced
+Warning[2065] C:\DataRoom\Ramos\Code\RamosClock_firmware.X\Ramos_Sys\LED_display.c 408 : static function 'LED_muxAway' never referenced

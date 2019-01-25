@@ -1,0 +1,6 @@
+V1.2 
+---------------------------------------
+6.2.14
+
+Changed the timers to volatile, along with everything in the LED_display and Nixie_display files.
+This was to fix the system hang that occured after the clock ran for a day and the alarm went off. 
