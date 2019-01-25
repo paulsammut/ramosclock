@@ -58,22 +58,30 @@ unsigned char getDigit(float t, float t1, unsigned char x0, unsigned char xc);
  * @param hours
  * @param minutes
  */
-
 void displayDigitCycling(float t, unsigned char hours, unsigned char minutes);
 
+/**
+ * @brief Displays the menu animation when getting into the menu
+ *
+ * @param timer
+ */
 void displayMenuAnim(unsigned short long timer);
 
+/**
+ * @brief Displays the exit animation.
+ *
+ * @param timer
+ */
 void displayExitAnim(unsigned short long timer);
+
 /**
  * pulses the lights, if hours == 1 pulse hours, if hours == 0 pulse minutes
  * @param hours
  * @param t
  */
-
 void pulseLights(unsigned char hours, unsigned char minutes, unsigned char alarmLight,
         volatile unsigned short long * t, unsigned char brightNess);
 
-/**/
 
 unsigned char tenTo32(unsigned char b);
 
@@ -85,4 +93,3 @@ void displayDefuseCode(State * state);
 
 
 #endif	/* DISPLAY_H */
-

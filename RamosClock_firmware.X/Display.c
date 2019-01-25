@@ -1,4 +1,3 @@
-
 #include "Display.h"
 
 void displayState(State * state, State * prev, volatile unsigned short long * timers)
@@ -306,27 +305,6 @@ void displayDigitCycling(float t, unsigned char hours, unsigned char minutes)
    Display_setAll4(now[0], now[1], now[2], now[3]);
 }
 
-//void displayMenuAnim(unsigned short long timer)
-//{
-//    while(timer >= 600){
-//        timer -= 600;
-//    }
-//
-//    if(timer < 100){
-//        Display_setIndividualElements( Blank, A, D, Blank);
-//    }else if(timer < 200){
-//        Display_setIndividualElements( A, Blank, Blank, D);
-//    }else if(timer < 300){
-//        Display_setIndividualElements( F, Blank, Blank, C);
-//    }else if(timer < 400){
-//        Display_setIndividualElements( E, Blank, Blank, B);
-//    }else if(timer < 500){
-//        Display_setIndividualElements(D, Blank, Blank, A);
-//    }else if(timer < 600){
-//        Display_setIndividualElements(Blank, D, A, Blank);
-//    }
-//}
-
 //entry animation. Have display go from  9999 to 8888 to 7777 ... 0000
 void displayMenuAnim(unsigned short long timer)
 {
@@ -359,23 +337,6 @@ void displayMenuAnim(unsigned short long timer)
 }
 
 
-//void displayExitAnim(unsigned short long timer)
-//{
-//    while(timer >= MENU_EXIT_LENGTH*4){
-//        timer -= MENU_EXIT_LENGTH*4;
-//    }
-//
-//    if(timer < MENU_EXIT_LENGTH){
-//        Display_setIndividualElements(Blank, B | C, F | E, Blank);
-//    }else if(timer < 2*MENU_EXIT_LENGTH){
-//        Display_setIndividualElements(Blank, E | F, B | C, Blank);
-//    }else if(timer < 3*MENU_EXIT_LENGTH){
-//        Display_setIndividualElements(B | C, Blank, Blank, F | E);
-//    }else if(timer < 4*MENU_EXIT_LENGTH){
-//        Display_setIndividualElements(F | E, Blank, Blank, B | C);
-//    }
-//}
-
 //nixie exit animation. have 1 scroll accross the screen.
 void displayExitAnim(unsigned short long timer)
 {
@@ -397,6 +358,7 @@ void displayExitAnim(unsigned short long timer)
 
 static unsigned char bright = 16;
 static unsigned char up = 1;
+
 void pulseLights(unsigned char hours, unsigned char minutes, unsigned char alarmLight,
         volatile unsigned short long * t, unsigned char brightNess)
 {
