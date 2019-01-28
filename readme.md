@@ -88,8 +88,6 @@ for a long period of time. I was never ever able to reproduce the problem, but I
 was able to pin point it to a less than robust communications PWM protocol with
 the sound chip.
 
-![Panelized boards](images/panelized_nixie.PNG?raw=true "Panelized Board")
-
 In the original firmware, the PIC18, who handled all the state flow stuff, would
 send a signal to the sound chip using a PWM serial comms protocol to play a
 sound. The PIC18 would assume that the sound was playing and happily move on.
@@ -107,6 +105,8 @@ would do a live oscillator re-cal and resend the command. I was lucky to have
 routed this line to a DI pin on the PIC18, so it was a simple firmware fix. 
 
 ### Altium Board Files
+
+![Panelized boards](images/panelized_nixie.PNG?raw=true "Panelized Board")
 
 Included are packged Altium files for all the boards. They were packed using
 Altium 2019. Included are also all the panelized boards.
