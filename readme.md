@@ -35,6 +35,42 @@ There are loads of features in the clock such as:
 ![LED Ramos left and Nixie Ramos right](images/IMG_1116.JPG?raw=true
 "LED_Nixie_Ramos")
 
+## Circuit Files
+
+Included in this repo are also all the schematics, gerbers and altium files. The
+boards were panelized and mass produced. Great consideration was taken to
+minimize the BOM count and facilitate assembly. These clocks all passed FCC
+testing, even the Nixie! One of the very few Nixie Clocks that's FCC certed. The
+EMC report is included in the schematics folder.
+
+![Circuit Board](images/nixie_board.gif?raw=true "Nixie board")
+
+### Nixie Circuit
+
+IN-12A Nixie tubes were used. I bought thousands in bulk from sellers in the
+Ukraine and Russia. When I bought them in 2012-2014 the price was around $1.50 a
+tube shipped. 
+
+The nixie circuit used a Taylor Edge 1364 high voltage power supply that
+supplied the 170 Volts. The display was controlled using ULN2003s in a neat way.
+You can't find 8 channel transistor IC's that can handle 180V's anymore, and I
+didn't want to use the original Russian nixie drivers IC's for reliability
+issues, so I used the ULN2003's which had a max volt rating of 100V and clamped
+the common voltage to 91V. This meant that in their off state, the tubes saw
+91V, which wasn't enough to fire the tubes, and in their on state they saw the
+full 170V. The ULN's only saw the delta of 170 and 91, which was below the max
+rated voltage, so it was happy. Out of the thousand clocks we sold, we never had
+an issue with the driver circuitry. 
+
+### Wireless
+
+The wireless data link betweeon the defuse panel and the clock is handled by a
+CC1101 chip on board an Anaren module. This module was the most expensive part
+of the bom ($11 at high volume) but it was pre-certed as an intentional
+radiator. Iterfacing to the CC1101 chip was a bit of a pain, the but the source
+is all there as a reference. Great chip and we had very good range throughout a
+house and sometimes outside the house.
+
 ### The Alarm Not Going Off Bug
 
 We made a thousand of these clocks and only had one return. But, there was one
@@ -69,42 +105,6 @@ sound was playing. On every sound command sent by the PIC18, it made sure to
 monitor the response from the sound chip. If it detected no sound was playing it
 would do a live oscillator re-cal and resend the command. I was lucky to have
 routed this line to a DI pin on the PIC18, so it was a simple firmware fix. 
-
-## Circuit Files
-
-![Circuit Board](images/nixie_board.gif?raw=true "Nixie board")
-
-Included in this repo are also all the schematics, gerbers and altium files. The
-boards were panelized and mass produced. Great consideration was taken to
-minimize the BOM count and facilitate assembly. These clocks all passed FCC
-testing, even the Nixie! One of the very few Nixie Clocks that's FCC certed. 
-
-### Nixie Circuit
-
-IN-12A Nixie tubes were used. I bought thousands in bulk from sellers in the
-Ukraine and Russia. When I bought them in 2012-2014 the price was around $1.50 a
-tube shipped. 
-
-The nixie circuit used a Taylor Edge 1364 high voltage power supply that
-supplied the 170 Volts. The display was controlled using ULN2003s in a neat way.
-You can't find 8 channel transistor IC's that can handle 180V's anymore, and I
-didn't want to use the original Russian nixie drivers IC's for reliability
-issues, so I used the ULN2003's which had a max volt rating of 100V and clamped
-the common voltage to 91V. This meant that in their off state, the tubes saw
-91V, which wasn't enough to fire the tubes, and in their on state they saw the
-full 170V. The ULN's only saw the delta of 170 and 91, which was below the max
-rated voltage, so it was happy. Out of the thousand clocks we sold, we never had
-an issue with the driver circuitry. 
-
-### Wireless
-
-The wireless data link betweeon the defuse panel and the clock is handled by a
-CC1101 chip on board an Anaren module. This module was the most expensive part
-of the bom ($11 at high volume) but it was pre-certed as an intentional
-radiator. Iterfacing to the CC1101 chip was a bit of a pain, the but the source
-is all there as a reference. Great chip and we had very good range throughout a
-house and sometimes outside the house.
-
 ### Altium Board Files
 
 Included are packged Altium files for all the boards. They were packed using
