@@ -105,6 +105,7 @@ sound was playing. On every sound command sent by the PIC18, it made sure to
 monitor the response from the sound chip. If it detected no sound was playing it
 would do a live oscillator re-cal and resend the command. I was lucky to have
 routed this line to a DI pin on the PIC18, so it was a simple firmware fix. 
+
 ### Altium Board Files
 
 Included are packged Altium files for all the boards. They were packed using
