@@ -25,14 +25,12 @@ microcontroller. The code includes the MPLAB project files and the compiler used
 was the C18 compiler. All source is written in C and programmed using a PicKit3.
 There are loads of features in the clock such as:
 
-* Sound system for playing tones and a voice menu Digit cycling on each minute
-* for Nixie Tube health The defuse code could be either the day's date or a
-* random code An external RTC with an built in XTCO with a clock accuracy of
-* 4PPM Multiplex display driver that allowed for 32 levels of brightness for
-* each
-    tube
-* Autodim brightness with an light sensor, to dim the display to a settable
-    level when there is no light in the room.
+* Sound system for playing tones and a voice menu 
+* Digit cycling on each minute for Nixie Tube health 
+* The defuse code could be either the day's date or a random code 
+* An external RTC with an built in XTCO with a clock accuracy of 4PPM 
+* Multiplex display driver that allowed for 32 levels of brightness for each tube
+* Autodim brightness with an light sensor, to dim the display to a settable level when there is no light in the room.
 
 ![LED Ramos left and Nixie Ramos right](images/IMG_1116.JPG?raw=true
 "LED_Nixie_Ramos")
