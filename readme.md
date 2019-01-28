@@ -2,17 +2,16 @@
 
 The Ramos Alarm Clock was an alarm clock that forced people to get out of bed in
 the morning by making it impossible to shut off the alarm from bed and simply
-going back to sleep. It accomplished this by use of a "defuse panel" which was a
-wireless keypad that the user would place somewhere far away from their
-bedroom. Most users just put it in the bahtroom; more extreme users put in their
+going back to sleep. It accomplished this by the use of a "defuse panel" which
+was a wireless keypad that the user would place somewhere far away from their
+bedroom. Most users put it in the bathroom; more extreme users put in their
 car. When the alarm went off, the user had to get out of bed, and walk to the
 defuse panel and punch in a defuse code to turn off the alarm. This gave well
 intentioned users that really wanted to get up early but just had a hard time
 escaping the cozy gravitational field of their bed the push they needed to start
 their day fresh and early (kinda like how mom woke you up during highschool).
 
-This project started out as a kickstarter campaign.
-https://www.kickstarter.com/projects/2074185253/ramos-alarm-clock
+This project started out as a [kickstarter campaign](https://www.kickstarter.com/projects/2074185253/ramos-alarm-clock)
 
 ![Maple Nixie Ramos](images/maple.jpg?raw=true "Nixie_Ramos")
 
@@ -21,18 +20,14 @@ https://www.kickstarter.com/projects/2074185253/ramos-alarm-clock
 This is the source code for the Nixie Ramos, LED Ramos and the defuse panel.
 These 3 devices shared similar code and all ran on the same PIC18F
 microcontroller. The code includes the MPLAB project files and the compiler used
-We made a thousand of these clocks and only had one return. There was one major
-bug that we caught early on and it had to do with the sound system
-communication - sometimes in a very small percentage of our clocks, in a very
-small percentage of occasions with said clocks, the alarm wouldn't go off. 
 was the C18 compiler. All source is written in C and programmed using a PicKit3.
-
 There are loads of features in the clock such as:
-* Sound system for playing tones and a voice menu
-* Digit cycling on each minute for Nixie Tube health
-* The defuse code could be either the day's date or a random code
-* An external RTC with an built in XTCO with a clock accuracy of 4PPM
-* Multiplex display driver that allowed for 32 levels of brightness for each
+
+* Sound system for playing tones and a voice menu Digit cycling on each minute
+* for Nixie Tube health The defuse code could be either the day's date or a
+* random code An external RTC with an built in XTCO with a clock accuracy of
+* 4PPM Multiplex display driver that allowed for 32 levels of brightness for
+* each
     tube
 * Autodim brightness with an light sensor, to dim the display to a settable
     level when there is no light in the room.
@@ -42,8 +37,8 @@ There are loads of features in the clock such as:
 
 ### The Alarm Not Going Off Bug
 
-We made a thousand of these clocks and only had one return. But, there was one major
-bug that we caught early on and it had to do with the sound system
+We made a thousand of these clocks and only had one return. But, there was one
+major bug that we caught early on and it had to do with the sound system
 communication. A couple of people would email us, swearing that their alarm
 didn't go off.
 
@@ -57,7 +52,7 @@ for a long period of time. I was never ever able to reproduce the problem, but I
 was able to pin point it to a less than robust communications PWM protocol with
 the sound chip.
 
-![Maple Nixie Ramos](images/maple.jpg?raw=true "Nixie_Ramos")
+![Panelized boards](images/panelized_nixie.png?raw=true "Panelized Board")
 
 In the original firmware, the PIC18, who handled all the state flow stuff, would
 send a signal to the sound chip using a PWM serial comms protocol to play a
