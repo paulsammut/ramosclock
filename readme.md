@@ -88,7 +88,7 @@ for a long period of time. I was never ever able to reproduce the problem, but I
 was able to pin point it to a less than robust communications PWM protocol with
 the sound chip.
 
-![Panelized boards](images/panelized_nixie.png?raw=true "Panelized Board")
+![Panelized boards](images/panelized_nixie.PNG?raw=true "Panelized Board")
 
 In the original firmware, the PIC18, who handled all the state flow stuff, would
 send a signal to the sound chip using a PWM serial comms protocol to play a
