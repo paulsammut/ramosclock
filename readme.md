@@ -4,14 +4,15 @@ The Ramos Alarm Clock was an alarm clock that forced people to get out of bed in
 the morning by making it impossible to shut off the alarm from bed and simply
 going back to sleep. It accomplished this by the use of a "defuse panel" which
 was a wireless keypad that the user would place somewhere far away from their
-bedroom. Most users put it in the bathroom; more extreme users put in their
-car. When the alarm went off, the user had to get out of bed, and walk to the
-defuse panel and punch in a defuse code to turn off the alarm. This gave well
+bedroom. Most users put it in the bathroom; more extreme users put in their car.
+When the alarm went off, the user had to get out of bed, and walk to the defuse
+panel and punch in a defuse code to turn off the alarm. This gave well
 intentioned users that really wanted to get up early but just had a hard time
 escaping the cozy gravitational field of their bed the push they needed to start
 their day fresh and early (kinda like how mom woke you up during highschool).
 
-This project started out as a [kickstarter campaign](https://www.kickstarter.com/projects/2074185253/ramos-alarm-clock)
+This project started out as a [kickstarter
+campaign](https://www.kickstarter.com/projects/2074185253/ramos-alarm-clock)
 
 ![Maple Nixie Ramos](images/maple.jpg?raw=true "Nixie_Ramos")
 
@@ -25,12 +26,12 @@ microcontroller. The code includes the MPLAB project files and the compiler used
 was the C18 compiler. All source is written in C and programmed using a PicKit3.
 There are loads of features in the clock such as:
 
-* Sound system for playing tones and a voice menu 
-* Digit cycling on each minute for Nixie Tube health 
-* The defuse code could be either the day's date or a random code 
-* An external RTC with an built in XTCO with a clock accuracy of 4PPM 
-* Multiplex display driver that allowed for 32 levels of brightness for each tube
-* Autodim brightness with an light sensor, to dim the display to a settable level when there is no light in the room.
+* Sound system for playing tones and a voice menu Digit cycling on each minute
+* for Nixie Tube health The defuse code could be either the day's date or a
+* random code An external RTC with an built in XTCO with a clock accuracy of
+* 4PPM Multiplex display driver that allowed for 32 levels of brightness for
+* each tube Autodim brightness with an light sensor, to dim the display to a
+* settable level when there is no light in the room.
 
 ![LED Ramos left and Nixie Ramos right](images/IMG_1116.JPG?raw=true
 "LED_Nixie_Ramos")
@@ -80,13 +81,13 @@ didn't go off.
 
 It was a really interesting problem because you could never replicated it on the
 bench, and when the user would power cycle their clock it would magically work
-again. This was because them problem it was tied to ossilator drift which
-effected the PWM communication timing with the sound chip, meaning that whenever
-you restarted the clock the problem would go away. The problem would only
-manifiest itself in a tiny percentage of our clocks, after the clock was running
-for a long period of time. I was never ever able to reproduce the problem, but I
-was able to pin point it to a less than robust communications PWM protocol with
-the sound chip.
+again. This was because the problem was related to accumulated ossilator drift
+which effected the PWM communication timing with the sound chip, meaning that
+whenever you restarted the clock the problem would go away. The problem would
+only manifiest itself in a tiny percentage of our clocks, after the clock was
+running for a long period of time. I was never ever able to reproduce the
+problem, but I was able to pin point it to a less than robust communications PWM
+protocol with the sound chip.
 
 In the original firmware, the PIC18, who handled all the state flow stuff, would
 send a signal to the sound chip using a PWM serial comms protocol to play a
