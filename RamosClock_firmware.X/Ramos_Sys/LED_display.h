@@ -5,6 +5,7 @@
  *
  * @License
  * This program is not free software. It is the property of Sammut Tech LLC.
+ * Just kidding, it's free!!!
  *
  * @Description
  * Definitions for the LED display module for Rev 1 and Rev 2 boards.

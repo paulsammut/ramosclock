@@ -8,7 +8,7 @@ void displayState(State * state, State * prev, volatile unsigned short long * ti
         timers[PULSE_TIMER]= 0;
     }
 
-    /* Determines what to display based on state */
+    // Determines what to display based on state
     // defuse code
     if(state->lockDownAndAlarmState != NEITHER &&
         timers[DEFUSE_CODE_TIMER] < DEFUSE_CODE_DISPLAY_LENGTH)
@@ -142,7 +142,7 @@ void displayState(State * state, State * prev, volatile unsigned short long * ti
                 }
                 break;
             default:
-                /* Undefined state */
+                // Undefined state
                 Display_showNumber(ERROR);
         }
 

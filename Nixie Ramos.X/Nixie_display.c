@@ -44,12 +44,16 @@ volatile unsigned char digit1Val = 2;
 volatile unsigned char digit2Val = 3;
 volatile unsigned char digit3Val = 4;
 
+
+/**
+ * @brief Temporary display value holders
+ */
 volatile unsigned char tempDisp0, tempDisp1, tempDisp2, tempDisp3;
 
 /**
  * @brief Peripheral brighness. colon, ampm light and alarm on led
  */
-volatile unsigned char periphBrightness = 329;
+volatile unsigned char periphBrightness = 32;
 
 /**
  * @brief LED on alarm
@@ -85,12 +89,6 @@ void InterruptVectorLow(void) {
             _endasm
 }
 
-/** Digit table initialization */
-
-/**
- * @brief Initialize the nixie display, which involves Timer0 and a digit table
- * that indexes the multiplexed display. 
- */
 void init_Display() {
     //Set the pins as outputs
     SHIFTREG_TRIS_CLOCK = 0;
@@ -303,10 +301,13 @@ static void Nixie_muxAway() {
     if (TIMER0_OFLOW) {
         TIMER0_OFLOW = 0; //Clear the T0IF flag
         PWM_counter++; //incrememnt Digit timer count
+
         //======================================================================
         //=========================enactBrightness()============================
         //======================================================================
-        
+        // This used to be function, when I was a silly goose and before I
+        // leared about the perils of called functions inside of interrupt
+        // routines!
 
         if (PWM_counter >= digit0Brightness) {
             tempDisp0 = BLANK;
@@ -338,7 +339,7 @@ static void Nixie_muxAway() {
         }
 
         if (isThereChange) {
-            /*shift it in 40 bits*/
+            // Shift in the 40 bits
             for (i = 0; i < 40; i++) {
                 if (i == tempDisp0 || i == tempDisp1 || i == tempDisp2 || i == tempDisp3) {
                     SHIFTREG_DATA = 1;
@@ -352,7 +353,7 @@ static void Nixie_muxAway() {
             SHIFTREG_LATCH = 0;
         }
 
-        /* Peripherals */
+        // Peripherals 
         if (PWM_counter >= periphBrightness) {
             Colon = 0; //turn off the colons
             PMLight = 0; //turn off PM light
@@ -368,12 +369,10 @@ static void Nixie_muxAway() {
         }
         //==========================================================================
 
-        /* Check to see if we are done with a PWM period*/
+        // Check to see if we are done with a PWM period
         if (PWM_counter >= 32) {
             PWM_counter = 0;
         }
-
-
 
     } if (TIMER1_OFLOW) { //timer 1 counter
         Timer_millis += 33; //increment by 33 ms

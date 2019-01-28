@@ -25,25 +25,21 @@ void main() {
     unsigned int photoCount;
     unsigned char photoLast;
 
-//    //new defuse code time
-//    unsigned long defusecounter = 0;
-//    unsigned char old_second;
-
     justPMenuSound = snoozeCount = 0;
     photoCount = 0;
     photoLast = 255;
 
-   /* INITIALIZATIONS */
+   // Initializations
    init_Ramos_sys();
    init_Display();
    init_Sound();
    init_CC1101();
 
-   /* Set the initial state */
+   // Set the initial state 
    setInitState(&state);
    prev.mode = TIME;
 
-   /* Seed the random generator*/
+   // Seed the random generator
    // get seed
    srand((unsigned int)(RTC_getYear()+RTC_getMonth()+RTC_getDay()+RTC_getMinutes()+RTC_getHours() ));
 
@@ -58,43 +54,36 @@ void main() {
    setDefuseCode(&state);
    while (1)
    {
-//       // Added on 11/19/13 as a defuse code fix
-//       //first we keep a running counter of seconds
-//       if(RTC_getSeconds()!=old_second){
-//           defusecounter++;
-//           old_second = RTC_getSeconds();
-//       }
-
-
        // Update Timers
        updateTimers(timers);
 
-       /********** DETERMINE STATE ***************/
-       /* handle events from the user */
+       // Determine State
+       // ========================================
+       // handle events from the user
        if(timers[MENU_ANIM_TIMER] > MENU_ANIM_LIMIT)
        {
            handleSwitch(&state, timers);
-           /*  knob input */
+           //  knob input
            handleKnob(&state, timers);
-           /* alarm button input */
+           // alarm button input
            handleAlarmBtn(&state, timers);
-           /* remote panel input */
+           // remote panel input
            handleRemotePanel(&state);
        }
 
        // time out menu and alarm
        handleTimeOuts(&state, timers);
 
-       /********** HANDLE STATE CHANGES *********/
+       // Handle state changes
        handleStateChanges(&prev, &state, timers, &justPMenuSound);
 
-       /* encoder input */
+       // Handle encoder input
        handleEncoder(&state, timers);
 
-       /*** Play correct sounds ***/
+       // Play correct sound
        handleSounds(&state, &prev, timers, &justPMenuSound);
 
-       // handle what happens to the sound when the alarm is triggered
+       // Handle what happens to the sound when the alarm is triggered
        handleCourt(&state, timers, &prev_rampup_vol);
 
        // Determine brightness if in autdim
@@ -167,8 +156,8 @@ void main() {
                Sound_loopPlay();
                timers[ALARM_TIMER] = 0;
 
-               //wait for the busy line to pop high
-               //it is important that we wait 250 ms. For this reason, we
+               // wait for the busy line to pop high
+               // it is important that we wait 250 ms. For this reason, we
                // are turning off the interrupts while we do this.
                INTCONbits.GIE  = 0;
                Delay1KTCYx(2000);//wait 250 ms
@@ -187,14 +176,6 @@ void main() {
                    && (state.alarmOn
                    && state.options[LOCKDOWN]))
            {
-               /* Old code to get new code only when just entering lockdown mode
-                *
-               if( getAlarmDistance((unsigned int)(hourTemp)*60+(unsigned int)(minTemp),
-                   (unsigned int)(state.alarmHours)*60+(unsigned int)(state.alarmMinutes)) ==
-                   60 )
-               {
-                   setDefuseCode(&state); //get new code
-               } */
                // get new code if we were not in lockdown and the alarm was not going off
                if( state.lockDownAndAlarmState == NEITHER )
                {
@@ -204,7 +185,7 @@ void main() {
                state.lockDownAndAlarmState = INLOCKDOWN;
            }
 
-            /* Code to run at midnight everyday */
+            // Code to run at midnight everyday, RF cal routine for the CC1101
             if( hourTemp == 0 && minTemp == 0 ){
                 //calibrate RF Chip
                 RF_send_Strobe(SCAL);
@@ -224,9 +205,9 @@ void main() {
             alarmMinStore = state.alarmMinutes;
         }
 
-       //---- FAIL CHECK ----------------------
-       //--------------------------------------
-       //----Added 10/5/13
+        //---- FAIL CHECK ----------------------
+        //--------------------------------------
+        //----Added 10/5/13
         // This checks to see if the alarm should be going off. If it should
         // it checks to see if the alarm is actually going off. If it is not, it
         // sends the play alarm command untill it sees that the alarm is actually

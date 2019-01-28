@@ -14,7 +14,7 @@
 #include "Ramos_sys/RTC.h"
 #include "Ramos_sys/Sound.h"
 
-/* Timer limits */
+// Timer limits
 #define MENU_TIMER_LIMIT 2500   // How long the alarm button needs to be held to enter the menu mode
 #define MENU_SND_WAIT_TIME 450 // how long we wait for play menu sound
 #define MENU_TIMEOUT_TIME 20000 // how long until the menu times out
@@ -29,6 +29,9 @@
 
 #define BRIGHTNESS_TIMER_LIMIT  3000
 
+/**
+ * @brief The modes that the clock could be in
+ */
 enum Mode
 {
     TIME=0,
@@ -38,6 +41,9 @@ enum Mode
     MENU_SET    // setting selected options in the menu
 };
 
+/**
+ * @brief Months of the year
+ */
 enum months
 {
     JAN=1,
@@ -54,6 +60,9 @@ enum months
     DEC
 };
 
+/**
+ * @brief List of options used in the menu
+ */
 enum options
 {
     REMOTE_ALARM=0,
@@ -76,6 +85,9 @@ enum options
     NUM_OPTIONS
 };
 
+/**
+ * @brief Various "soft" timers used during manual polling.
+ */
 enum timers_enum
 {
     TEMP_TIMER,
@@ -91,6 +103,9 @@ enum timers_enum
     NUM_TIMERS
 };
 
+/**
+ * @brief States if using lockdown mode
+ */
 enum lockdownandalarmstate
 {
     NEITHER=0,
@@ -99,32 +114,34 @@ enum lockdownandalarmstate
     ALARM_TRIGGERED
 };
 
-
+/**
+ * @brief Main statemachine of the clock
+ */
 typedef struct
 {
     unsigned char setHourMode; // true == set hours, false == set minutes
     unsigned char alarmOn;     // alarm on
     unsigned char lockDownAndAlarmState;
-    /* Time */
+    // Time
     unsigned char hours;
     unsigned char minutes;
-    /* Alarm Time */
+    // Alarm Time
     unsigned char alarmHours;
     unsigned char alarmMinutes;
     unsigned char snoozeCount;
     unsigned char defuseFirst;
     unsigned char defuseSecond;
-    /* Display mode */
+    // Display mode
     unsigned char mode;
-    /* options */
+    // options
     unsigned int curOption;
     unsigned char options[NUM_OPTIONS];
-    /* Addresses for remote alarm */
+    // Addresses for remote alarm
     unsigned char address0;
     unsigned char address1;
 } State;
 
 
 
-#endif	/* CONSTRUCTS_H */
+#endif
 

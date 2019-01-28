@@ -33,27 +33,39 @@
 
 
 /**
- * displays the current state
+ * @brief displays the current state
+ *
  * @param state
  */
 void displayState(State * state, State * prev,volatile unsigned short long * timers);
 
 /**
- *  Displays time on RTC
+ * @brief  Displays time on RTC
  */
 void displayCurTime(unsigned char is24mode, unsigned char pmlight);
 
 /**
- * Displays time from argument
+ * @brief Displays time from argument
  */
 void displaySetTime(unsigned char hours, unsigned char minutes,
         unsigned char is24mode, unsigned char pmlight);
 
 
+/**
+ * @brief Honestly I forgot what this function does.
+ *
+ * @param t Float one
+ * @param t1 Float two, cause hey two's a tango
+ * @param x0 Unsigned char to you know, do some stuff
+ * @param xc Another unsigned char that is used for solar polarity.
+ *
+ * @return The modulus of age vs cat_loving_quality
+ */
 unsigned char getDigit(float t, float t1, unsigned char x0, unsigned char xc);
 
 /**
- * Takes the next hours and minutes and does the digit cycling
+ * @brief Takes the next hours and minutes and does the digit cycling
+ *
  * @param t
  * @param hours
  * @param minutes
@@ -75,7 +87,8 @@ void displayMenuAnim(unsigned short long timer);
 void displayExitAnim(unsigned short long timer);
 
 /**
- * pulses the lights, if hours == 1 pulse hours, if hours == 0 pulse minutes
+ * @brief pulses the lights, if hours == 1 pulse hours, if hours == 0 pulse minutes
+ *
  * @param hours
  * @param t
  */
@@ -83,13 +96,44 @@ void pulseLights(unsigned char hours, unsigned char minutes, unsigned char alarm
         volatile unsigned short long * t, unsigned char brightNess);
 
 
+/**
+ * @brief This maps a brightness rage for 0-10 to 0-32
+ *
+ * @param b 0-10 brightness range
+ *
+ * @return 0-32 brightness range
+ */
 unsigned char tenTo32(unsigned char b);
 
+/**
+ * @brief Autodim brightness helper function
+ *
+ * @param room
+ * @param setting
+ * @param autodim
+ *
+ * @return 
+ */
 unsigned char roomTo10(unsigned char room, unsigned char setting, unsigned char autodim);
 
+/**
+ * @brief Autodim brightness helper function 
+ *
+ * @param room
+ * @param setting
+ * @param autodim
+ *
+ * @return 
+ */
 unsigned char roomTo32(unsigned char room, unsigned char setting, unsigned char autodim);
 
+/**
+ * @brief Displays the defuse code on the display. Helpful to show the user the
+ * code's they've gotta input into the defuse code to shut the damn thing off!
+ *
+ * @param state
+ */
 void displayDefuseCode(State * state);
 
 
-#endif	/* DISPLAY_H */
+#endif

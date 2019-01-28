@@ -340,8 +340,6 @@ char pollEncoder(void) {
     return retValSigned;
 }
 
-
-
 unsigned char photoResVal(void){
     unsigned char tempRetVal;
     ADCON0bits.GO_DONE = 1; // start conversion

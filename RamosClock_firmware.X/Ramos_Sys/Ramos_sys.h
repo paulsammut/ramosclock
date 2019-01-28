@@ -78,8 +78,6 @@ unsigned char pollKnobBtn(void);
  */
 char pollEncoder(void);
 
-
-
 /**
  * Returns the brightness value of the room from 0 being full dark to 255 being full bright.
  * @return

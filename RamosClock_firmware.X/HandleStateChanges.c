@@ -77,18 +77,6 @@ void handleStateChanges(State * prev, State * state,volatile unsigned short long
         }
     }
 
-    // turn on colon in the submenu of day/month and month day
-    /*/
-    if(state->curOption == DATE_FORMAT)
-    {
-        if(prev->mode == MENU && state->mode == MENU_SET){
-            turnOnColon();
-        }
-        else if(prev->mode == MENU_SET && state->mode == MENU){
-            turnOffColon();
-        }
-    }*/
-
     // was in menu set but not anymore
     if( prev->mode == MENU_SET && state->mode != MENU_SET ){
         // Set the days and month to the RTC clock
