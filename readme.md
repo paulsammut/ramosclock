@@ -11,5 +11,7 @@ intentioned users that really wanted to get up early but just had a hard time
 escaping the cozy gravitational field of their bed the push they needed to start
 their day fresh and early (kinda like how mom woke you up during highschool).
 
+![LED Ramos left and Nixie Ramos right](images/IMG_1116.JPG?raw=true
+"LED_Nixie_Ramos")
 This is the source code for the Nixie Ramos and LED Ramos alarm clocks.
 
