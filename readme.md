@@ -17,6 +17,8 @@ This project started out as a [kickstarter campaign](https://www.kickstarter.com
 
 ## Source Code
 
+This source was written by Nolan Sandberg, and Paul Sammut.
+
 This is the source code for the Nixie Ramos, LED Ramos and the defuse panel.
 These 3 devices shared similar code and all ran on the same PIC18F
 microcontroller. The code includes the MPLAB project files and the compiler used
