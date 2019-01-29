@@ -68,7 +68,7 @@ an issue with the driver circuitry.
 The wireless data link betweeon the defuse panel and the clock is handled by a
 CC1101 chip on board an Anaren module. This module was the most expensive part
 of the bom ($11 at high volume) but it was pre-certed as an intentional
-radiator. Iterfacing to the CC1101 chip was a bit of a pain, the but the source
+radiator. Interfacing to the CC1101 chip was a bit of a pain, the but the source
 is all there as a reference. Great chip and we had very good range throughout a
 house and sometimes outside the house.
 
