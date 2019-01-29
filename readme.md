@@ -12,7 +12,7 @@ escaping the cozy gravitational field of their bed the push they needed to start
 their day fresh and early (kinda like how mom woke you up during highschool).
 
 This project started out as a [kickstarter
-campaign](https://www.kickstarter.com/projects/2074185253/ramos-alarm-clock)
+campaign](https://www.kickstarter.com/projects/2074185253/ramos-alarm-clock).
 
 ![Maple Nixie Ramos](images/maple.jpg?raw=true "Nixie_Ramos")
 
@@ -26,12 +26,13 @@ microcontroller. The code includes the MPLAB project files and the compiler used
 was the C18 compiler. All source is written in C and programmed using a PicKit3.
 There are loads of features in the clock such as:
 
-* Sound system for playing tones and a voice menu Digit cycling on each minute
-* for Nixie Tube health The defuse code could be either the day's date or a
-* random code An external RTC with an built in XTCO with a clock accuracy of
-* 4PPM Multiplex display driver that allowed for 32 levels of brightness for
-* each tube Autodim brightness with an light sensor, to dim the display to a
-* settable level when there is no light in the room.
+* Sound system for playing tones and a voice menu 
+* Digit cycling on each minute for Nixie Tube health 
+* The defuse code could be either the day's date or a random code 
+* An external RTC with an built in XTCO with a clock accuracy of 4PPM 
+* Multiplex display driver that allowed for 32 levels of brightness for each tube 
+* Autodim brightness with an light sensor, to dim the display to a settable
+  level when there is no light in the room.
 
 ![LED Ramos left and Nixie Ramos right](images/IMG_1116.JPG?raw=true
 "LED_Nixie_Ramos")
@@ -110,4 +111,5 @@ routed this line to a DI pin on the PIC18, so it was a simple firmware fix.
 ![Panelized boards](images/panelized_nixie.PNG?raw=true "Panelized Board")
 
 Included are packged Altium files for all the boards. They were packed using
-Altium 2019. Included are also all the panelized boards.
+Altium 2019. Included are also all the panelized boards. The circuit boards were
+4 layer: two signal, a ground and a power plane.
